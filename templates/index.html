@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<title>OmegaStop</title>
+		<meta charset="utf-8">
+		<style>
+		@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600&display=swap');
+		</style>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/chessboard-1.0.0.min.css')}}"
+    />
+        <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/app.css')}}"
+    />
+    <script src="{{ url_for('static', filename='js/jquery-3.6.0.min.js')}}"></script>
+     <script src="{{ url_for('static', filename='js/chessboard-1.0.0.min.js')}}"></script>
+     <script src="{{ url_for('static', filename='js/app.js')}}"></script>
+	</head>
+	<body>
+		<section class="grid">
+			<div id="board_item">
+				<div id="board2" style="width: 400px"></div>
+				<button id="startBtn">Start Position</button>
+				<button id="clearBtn">Clear Board</button>
+			</div>
+		</section>
+	</body>
+</html>
