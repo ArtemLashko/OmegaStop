@@ -8,7 +8,7 @@ app.config["DEBUG"] = True
 def hello_world():  # put application's code here
     return render_template('index.html')
 
-# A route to return a next move 1
+# A route to return a next move 2
 @app.route('/api/v1/suggest_move', methods=['GET'])
 def api_all():
     print(request.args)
