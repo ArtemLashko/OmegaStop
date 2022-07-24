@@ -12,12 +12,11 @@ def hello_world():  # put application's code here
 @app.route('/api/v1/suggest_move', methods=['GET'])
 def api_all():
     print(request.args)
-    game="notfound"
-    if 'game' in request.args:
-        game = str(request.args['game'])
+    if 'fen' in request.args:
+        fen = str(request.args['fen'])
     else:
-        return "Error: No id field provided. Please specify an id."
-    return str(len(game))
+        return -1
+    return "test"
 
 
 if __name__ == '__main__':
