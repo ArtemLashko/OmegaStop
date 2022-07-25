@@ -16,14 +16,16 @@ function onDragStart (source, piece, position, orientation) {
 }
 
 function makeRandomMove () {
-  var possibleMoves = game.moves()
-
+  var fen = game.fen()
+  $.get("http://127.0.0.1:5000/api/v1/suggest_move?fen=" + fen, function(data) {
+        console.log("lol")
+        console.log(data)
+        game.move(data, {sloppy: true});
+        //updateStatus();
+        // The animations would stutter when moves were returned too quick, so I added a 100ms delay before the animation
+        board.position(game.fen());
+    })
   // game over
-  if (possibleMoves.length === 0) return
-
-  var randomIdx = Math.floor(Math.random() * possibleMoves.length)
-  game.move(possibleMoves[randomIdx])
-  board.position(game.fen())
 }
 
 function onDrop (source, target) {

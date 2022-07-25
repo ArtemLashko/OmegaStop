@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 from flask import request, jsonify
+import chessengine
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
@@ -16,7 +17,10 @@ def api_all():
         fen = str(request.args['fen'])
     else:
         return -1
-    return "test"
+    engine_ins = chessengine.Engine(fen)
+    next_move = engine_ins.random_move()
+    print("My next move is " + next_move)
+    return "{'move': '%s'}" % str(next_move)
 
 
 if __name__ == '__main__':
