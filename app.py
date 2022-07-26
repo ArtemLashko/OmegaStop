@@ -19,7 +19,7 @@ def api_all():
         return -1
     engine_ins = chessengine.Engine(fen)
     engine_ins.debug()
-    next_move = engine_ins.minimax_move()
+    next_move = engine_ins.alphabeta_move()
     print("My next move is " + str(next_move))
     engine_ins.debug()
     return "{'move': '%s'}" % str(next_move)
