@@ -106,6 +106,7 @@ class Engine:
     # Returns the best tactical chess move for any position
     # The recommended depth is 4 - 5 since minimax without optimizations
     def minimax(self, depth, mx_depth):
+        print("Hello")
         maxormin = self.board.turn
         legal_moves = list(self.board.legal_moves)
         bestmove = ""
@@ -118,6 +119,7 @@ class Engine:
         for move in legal_moves:
             self.board.push(move)
             temp_score = self.minimax(depth - 1, mx_depth)
+            self.board.pop()
             if (maxormin == 1) and (temp_score > max_score):
                 bestmove = str(move)
                 max_score = temp_score
@@ -126,7 +128,6 @@ class Engine:
                 max_score = temp_score
             if depth == mx_depth:
                 print("Potential answer is " + str(move) + " : " + str(temp_score))
-            self.board.pop()
         if depth == mx_depth:
             print(self.whose_move())
             print("Answer is " + str(bestmove) + " : " + str(max_score))
@@ -136,7 +137,7 @@ class Engine:
     def alphabeta(self, depth, mx_depth, alpha, beta):
         maxormin = self.board.turn
         legal_moves = list(self.board.legal_moves)
-        bestmove = ""
+        bestmove = "" if len(legal_moves) == 0 else str(legal_moves[0])
         if depth == 0:
             return self.position_eval()
         if maxormin:
@@ -146,6 +147,7 @@ class Engine:
         for move in legal_moves:
             self.board.push(move)
             temp_score = self.alphabeta(depth - 1, mx_depth, alpha, beta)
+            self.board.pop()
             if (maxormin == 1) and (temp_score > max_score):
                 bestmove = str(move)
                 max_score = temp_score
@@ -160,7 +162,6 @@ class Engine:
                 break
             if depth == mx_depth:
                 print("Potential answer is " + str(move) + " : " + str(temp_score))
-            self.board.pop()
         if depth == mx_depth:
             print(self.whose_move())
             print("Answer is " + str(bestmove) + " : " + str(max_score))
@@ -174,7 +175,7 @@ class Engine:
         return self.minimax(3, 3)
 
     def alphabeta_move(self):
-        return self.alphabeta(5, 5, 3, self.NEG_INF)
+        return self.alphabeta(4, 4, self.NEG_INF, self.INF)
 
     def whose_move(self):
         return "White" if self.board.turn else "Black"
