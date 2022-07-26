@@ -8,24 +8,33 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		    <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='css/chessboard-1.0.0.min.css')}}"
-    />
+      href="{{ url_for('static', filename='css/chessboard-1.0.0.min.css')}}"/>
         <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='css/app.css')}}"
-    />
+      href="{{ url_for('static', filename='css/app.css')}}"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.2/chess.js"></script>
     <script src="{{ url_for('static', filename='js/jquery-3.6.0.min.js')}}"></script>
      <script src="{{ url_for('static', filename='js/chessboard-1.0.0.min.js')}}"></script>
      <script src="{{ url_for('static', filename='js/app.js')}}"></script>
+        <script src="https://kit.fontawesome.com/cfdd091489.js" crossorigin="anonymous"></script>
 	</head>
 	<body>
 		<section class="grid">
 			<div id="board_item">
-				<div id="board2" style="width: 400px"></div>
-				<button id="startBtn">Start Position</button>
-				<button id="clearBtn">Clear Board</button>
+				<div id="board2"></div>
 			</div>
+            <div id="menu">
+                <button id="startBtn" class="button-9">Start Position</button>
+				<button id="clearBtn" class="button-9">Clear Board</button>
+                <button id="swapBtn" class="button-9">Swap Sides</button>
+            </div>
+            <div id="footer">
+                <a href="https://github.com/ArtemLashko/OmegaStop" target="_blank"><i class="fa-brands fa-square-github fa-2xl"></i></a>
+                <a href="https://www.linkedin.com/in/arteml1/" target="_blank"><i class="fa-brands fa-linkedin fa-2xl"></i></a>
+                <a href=""><i class="fa-brands fa-google-play" target="_blank"></i></a>
+
+
+            </div>
 		</section>
 	</body>
 </html>
