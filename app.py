@@ -18,8 +18,10 @@ def api_all():
     else:
         return -1
     engine_ins = chessengine.Engine(fen)
-    next_move = engine_ins.random_move()
-    print("My next move is " + next_move)
+    engine_ins.debug()
+    next_move = engine_ins.minimax_move()
+    print("My next move is " + str(next_move))
+    engine_ins.debug()
     return "{'move': '%s'}" % str(next_move)
 
 
