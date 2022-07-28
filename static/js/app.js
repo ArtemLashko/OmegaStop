@@ -7,7 +7,7 @@ setTimeout(function() {
   $('#startBtn').on('click', startgame)
   $('#clearBtn').on('click', board.clear)
   $('#swapBtn').on('click', flip)
-}, 0);
+}, 100);
 
 // This function starts the board
 function startgame(){
@@ -15,6 +15,7 @@ function startgame(){
   game.reset()
   board.start()
 }
+
 
 // Flips the board and makes a move
 function flip(){
