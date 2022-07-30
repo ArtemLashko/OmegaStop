@@ -174,6 +174,9 @@ class Engine:
     def minimax_move(self):
         return self.minimax(3, 3)
 
+    def ml_elal(self):
+        pass
+
     def alphabeta_move(self):
         return self.alphabeta(4, 4, self.NEG_INF, self.INF)
 
