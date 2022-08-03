@@ -2,7 +2,7 @@
 
 body{
 	font-family: 'Nunito Sans', sans-serif;
-	background-color: #434343;
+	background-color: #222831;
 }
 .grid{
 	display: grid;
@@ -31,8 +31,11 @@ body{
 }
 #header{
     grid-area: header;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-bottom-color: snow;
-    border-bottom-width: 3px;
+    border-bottom-width: 2px;
     border-bottom: solid;
 }
 #moves{
@@ -94,35 +97,19 @@ html, body {
   font-family: 'Raleway';
   font-size: 2.5rem;
 }
-.gradient-border {
-  --borderWidth: 3px;
-  background: #1D1F20;
+#board_item, #menu{
+    --borderWidth: 3px;
+  background: #393E46;
   position: relative;
   border-radius: var(--borderWidth);
+  border-color: #EEEEEE;
+  border-style: solid;
+  border-width: medium;
 }
-.gradient-border:after {
-  content: '';
-  position: absolute;
-  top: calc(-1 * var(--borderWidth));
-  left: calc(-1 * var(--borderWidth));
-  height: calc(100% + var(--borderWidth) * 2);
-  width: calc(100% + var(--borderWidth) * 2);
-  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
-  border-radius: calc(2 * var(--borderWidth));
-  z-index: -1;
-  animation: animatedgradient 3s ease alternate infinite;
-  background-size: 300% 300%;
+.puffer-fish{
+  height: 60px;
+  width: 60px;
 }
-
-
-@keyframes animatedgradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+.chess_board div{
+  border: none;
 }

@@ -215,7 +215,7 @@ class Engine:
     # 772 = 2 colors * 6 figures * 8 columns * 8 rows + can white castle + can black castle + who can move
     def make_a_row(self):
         lst = [0 for i in range(2 * 6 * 8 * 8)]
-        half = 772 / 2
+        half = 772 // 2
         for i in range(1, 7):
             for x in self.board.pieces(i, False):  # black color
                 lst[0 + (i - 1) * 64 + x] = 1
