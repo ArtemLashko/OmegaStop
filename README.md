@@ -23,6 +23,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 <br>
+<img src = "static/img/screenshot.jpg" style="max-width: 100%">
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 </body>
 <!-- MARKDOWN LINKS & IMAGES -->
