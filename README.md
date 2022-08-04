@@ -22,4 +22,9 @@
 </div>
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+<br>
+[![Product Name Screen Shot][product-screenshot]](https://example.com)
 </body>
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[product-screenshot]: static/img/screenshot.jpg
