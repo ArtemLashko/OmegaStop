@@ -6,12 +6,8 @@
 		@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600&display=swap');
 		</style>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/chessboard-1.0.0.min.css')}}"/>
-        <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/app.css')}}"/>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/chessboard-1.0.0.min.css')}}"/>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css')}}"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.2/chess.js"></script>
     <script src="{{ url_for('static', filename='js/jquery-3.6.0.min.js')}}"></script>
      <script src="{{ url_for('static', filename='js/chessboard-1.0.0.min.js')}}"></script>
@@ -19,16 +15,21 @@
         <script src="https://kit.fontawesome.com/cfdd091489.js" crossorigin="anonymous"></script>
 	</head>
 	<body>
+        <div class=".bg-dark.bg-gradient">
 		<section class="grid">
 			<div id="board_item">
 				<div class="chess_board" id="board2"></div>
 			</div>
             <div id="menu">
                 <div id="header">
-                    <img class="puffer-fish" src="{{ url_for('static', filename='img/puffer-fish.png')}}"><p>Pufferfish Engine</p>
+                    <img class="puffer-fish" src="{{ url_for('static', filename='img/puffer-fish.png')}}"><h3>Pufferfish Engine</h3>
                 </div>
                 <div id="moves">
-                    <p>Moves section</p>
+                    <p>This is a chess engine called Pufferfish.</p>
+                    <p>It was developed using Python and Javascript.</p>
+                    <p>I am utilizing the alpha-beta pruning algorithm to pick the next move.</p>
+                    <p>To optimize it, I’ve trained a neural network, which tells who has an advantage.</p>
+                    <p>In practice, it reduces search space by 30 %.</p>
                 </div>
                 <div id="controls">
                     <button id="startBtn" class="button-9">Start Position</button>
@@ -42,5 +43,6 @@
                 <a href="" target="_blank"><i class="fa-brands fa-google-play"></i></a>
             </div>
 		</section>
+        </div>
 	</body>
 </html>

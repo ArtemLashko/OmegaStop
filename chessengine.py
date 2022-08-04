@@ -89,6 +89,7 @@ class Engine:
                                         -4, 3, -14, -50, -57, -18, 13, 4,
                                         17, 30, -3, -14, 6, -1, 40, 18],
                                   }
+        self.leafs = 0
         self.board.set_fen(fen)  # Initialize the board with a fen string
 
     # The purpose of this function is to give some board configuration an evaluation
@@ -101,9 +102,9 @@ class Engine:
             score -= len(self.board.pieces(self.pieces_to_number[piece_type], False)) * self.pieces[piece_type]
             # Utilize Piece-Square tables for calculating a position advantage
             for ind in self.board.pieces(self.pieces_to_number[piece_type], False):
-                score += self.evaluation_tables[piece_type][-ind]
+                score -= self.evaluation_tables[piece_type][ind]
             for ind in self.board.pieces(self.pieces_to_number[piece_type], True):
-                score += self.evaluation_tables[piece_type][ind]
+                score += self.evaluation_tables[piece_type][-ind]
         return score
 
     # Performs minimax on a board
@@ -129,6 +130,7 @@ class Engine:
 
         # Let's iterate over potential moves and investigate opportunities
         for move in legal_moves:
+            self.leafs += 1
             self.board.push(move)
             temp_score = self.minimax(depth - 1, mx_depth)
             self.board.pop()
@@ -161,7 +163,7 @@ class Engine:
         else:
             max_score = self.INF
 
-        # On top layers, I want to utilize machine learning to go only into positions that lead to a potential win
+        #On top layers, I want to utilize machine learning to go only into positions that lead to a potential win
         if mx_depth - depth <= self.ML_N:
             lst = []
             for move in legal_moves:
@@ -172,6 +174,9 @@ class Engine:
                 lst.sort(reverse=True, key = lambda x: x[0])
             else:  # that's a black move, and we are interested in minimizing evaluation
                 lst.sort(key = lambda x: x[0])
+                for x in lst:
+                    print(x[0], str(x[1]))
+                print("######")
             #print(len(lst))
             legal_moves = []
             for i in range(len(lst)):
@@ -179,6 +184,7 @@ class Engine:
 
         # Let's iterate over potential moves and investigate opportunities
         for move in legal_moves:
+            self.leafs += 1
             self.board.push(move)
             temp_score = self.alphabeta(depth - 1, mx_depth, alpha, beta, str(move))
             self.board.pop()

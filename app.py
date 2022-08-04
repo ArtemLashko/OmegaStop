@@ -22,8 +22,9 @@ def api_all():
     next_move = engine_ins.alphabeta_move()
     print("My next move is " + str(next_move))
     engine_ins.debug()
+    print(engine_ins.leafs)
     return "{'move': '%s'}" % str(next_move)
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host="localhost",port=3000)
