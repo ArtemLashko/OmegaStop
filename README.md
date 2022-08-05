@@ -45,6 +45,7 @@ to reduce search domain and increase performance.
 <li> 0 - Black has an advantage of 1.5 pawns or more.</li>
 <li> 1 - Black or white has an advantage of fewer than 1.5 pawns.</li>
 <li> 2 - White has an advantage of 1.5 pawns or more.</li>
+<br>
 <p>I've used this model to reduce the domain of search. In the table below, you can see how 
 it affects the number of considered moves.</p>
 <p>In all examples, I've used 1000 random chess positions. They weren't used in either training or validation.</p>
