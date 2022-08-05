@@ -30,6 +30,7 @@ to reduce search domain and increase performance.
 <li>Javascript</li>
 <li>CSS</li>
 <li>HTML</li>
+<br>
 <p>Back-end</p>
 <li>Python</li>
 <li>Flask</li>
