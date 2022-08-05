@@ -1,30 +1,3 @@
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
-<a name="readme-top"></a>
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
     <img src="static/img/puffer-fish.png" alt="Logo" 
@@ -36,10 +9,9 @@
   <p align="center">
     A compact chess engine written in Python and Javascript
     <br />
-    <a href="https://github.com/ArtemLashko/PufferFish"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/ArtemLashko/PufferFish">View Demo</a>
+    <a href="" style="">View Demo(Soon)</a>
     ·
     <a href="https://github.com/ArtemLashko/PufferFish/issues">Report Bug</a>
     ·
@@ -50,5 +22,68 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 <img src = "static/img/screenshot.jpg" style="max-width: 100%">
+<p>This is a chess engine/interface created using Flask.</p>
+<p>It utilizes the artificial intelligence algorithm Alpha-Beta pruning algorithm with the help of a neural network model.
+to reduce search domain and increase performance.
+</p>
+<p>Front-end</p>
+<li>Javascript</li>
+<li>CSS</li>
+<li>HTML</li>
+<p>Back-end</p>
+<li>Python</li>
+<li>Flask</li>
+<li>Keras</li>
 
+<!-- Machine learning -->
+## Machine learning
 
+<p>The model was trained with 3.5 million examples of board/class.</p>
+<p>The board is represented as 768 columns (2 sides * 6 figures * 8 rows * 8 columns).</p>
+<p>There are three types of classes:</p>
+<li> 0 - Black has an advantage of 1.5 pawns or more.</li>
+<li> 1 - Black or white has an advantage of fewer than 1.5 pawns.</li>
+<li> 2 - White has an advantage of 1.5 pawns or more.</li>
+<p>I've used this model to reduce the domain of search. In the table below, you can see how 
+it affects the number of considered moves.</p>
+<p>In all examples, I've used 1000 random chess positions. They weren't used in either training or validation.</p>
+
+| Layers affected | Alpha-beta with ML | Standard alpha-beta | Difference(%) |
+|-----------------|:------------------:|--------------------:|--------------:|
+| 1               |       65209        |               70572 |        7.599% |
+| 2               |      45730.65      |               70572 |       35.200% |
+| 3               |      44236.84      |               70572 |       37.316% |
+
+<p>We can see that if the number of layers where machine learning was used increases, the search domain decreases.</p>
+<p>In practice, two layers are the optimal solution.</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- ROADMAP -->
+## Roadmap
+
+- [x] Implement minimax algorithm
+- [x] Implement alpha-beta algorithm
+- [x] Develop front-end for a computer
+- [ ] Develop front-end for a mobile phone
+- [ ] Implement MTD(f) algorithm
+- [ ] Develop an Android app
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- Installation -->
+## Installation
+1. Clone the repo
+   ```sh
+   git clone https://github.com/ArtemLashko/PufferFish
+   ```
+2. Install requirements
+   ```sh
+   pip install -r requirements.txt
+   ```
+3. Run Flask server
+    ```sh
+   python app.py
+   ```
+<br>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<br>
